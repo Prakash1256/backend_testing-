@@ -13,6 +13,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+
+// router import 
+
+const userRouter = require("./routes/user.routes");
+
+
+// routes declaration 
+app.use("/api/v1/users" , userRouter);
+
 app.get('/', async (req, res) => {
     try {
         const model = new User({
