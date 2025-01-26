@@ -1,11 +1,8 @@
-// const mongoose = require('mongoose');
-
-
 const mongoose = require('mongoose');
 
 // Define the schema for the User model
 const userSchema = new mongoose.Schema({
-    name: {
+    fullName: {
         type: String,
         required: true,
         trim: true,
@@ -21,6 +18,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6,
     },
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,  // Automatically convert to lowercase
+        trim: true,       // Remove leading and trailing spaces
+    }
 }, {
     timestamps: true, // Automatically adds createdAt and updatedAt fields
 });

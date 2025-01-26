@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./db/index');
 const dotenv = require('dotenv');
-const User = require("./models/index");
+const User = require("./models/user.model");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 dotenv.config();
@@ -23,19 +23,20 @@ const userRouter = require("./routes/user.routes");
 app.use("/api/v1/users" , userRouter);
 
 app.get('/', async (req, res) => {
-    try {
-        const model = new User({
-            name: "prakash",
-            email: "ps4059269@gmail.com",
-            password: "12345678",
-        });
+    // try {
+    //     const model = new User({
+    //         name: "prakash",
+    //         email: "ps4059269@gmail.com",
+    //         password: "12345678",
+    //     });
         
-        await model.save();
-        res.send("User saved successfully!");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Error saving user");
-    }
+    //     await model.save();
+    //     res.send("User saved successfully!");
+    // } catch (error) {
+    //     console.error(error);
+    //     res.status(500).send("Error saving user");
+    // }
+    res.send("ok");
 });
 
 const port = process.env.PORT || 3000;
